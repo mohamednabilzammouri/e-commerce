@@ -1,4 +1,5 @@
 import React from "react";
+import SubCategories from "../categories/subCategories/SubCategories";
 
 function Sidebar() {
   return (
@@ -6,9 +7,7 @@ function Sidebar() {
       <h3>Kategorien</h3>
 
       <ul>
-        <li>
-          <a href={`/aa`}>aaa</a>
-        </li>
+        <SubCategories />
       </ul>
     </div>
   );

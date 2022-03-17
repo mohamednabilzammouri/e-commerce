@@ -6,7 +6,7 @@ import DisplayArticles from "../articles/DisplayArticles";
 
 function Content() {
   const [Categories] = useGetCategories();
-  console.log(Categories[0]);
+  console.log(Categories);
   console.log(window.location.pathname);
 
   const articles = getArticlesFromPath(window.location.pathname, Categories[0]);

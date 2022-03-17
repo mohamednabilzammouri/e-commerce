@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  getArticlesFromPath,
-  getFirstNElements,
-} from "../services/ArticlesServices";
+import { getFirstNElements } from "../services/ArticlesServices";
 import { Category } from "../types";
 
 function useGetCategories() {
