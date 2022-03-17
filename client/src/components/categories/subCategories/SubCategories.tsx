@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../../../Context/Context";
 import useGetCategories from "../../../hooks/useGetCategories";
 
 function SubCategories() {
-  const [Categories] = useGetCategories();
+  const Categories = useContext(AppContext);
 
   return (
     <ul>

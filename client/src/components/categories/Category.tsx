@@ -1,8 +1,9 @@
-import React from "react";
-import useGetCategories from "../../hooks/useGetCategories";
+import React, { useContext } from "react";
+import { AppContext } from "../../Context/Context";
 
 function Category() {
-  const [Categories] = useGetCategories();
+  const Categories = useContext(AppContext);
+
   return (
     <>
       {Categories[0]?.name}

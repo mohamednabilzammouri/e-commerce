@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../../Context/Context";
 import Category from "../categories/Category";
 
 function Header() {
+  const user = useContext(AppContext);
+
   return (
     <>
       <div className={"header"}>
