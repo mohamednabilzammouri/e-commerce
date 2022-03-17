@@ -1,11 +1,13 @@
 import React from "react";
+import useGetCategories from "../../hooks/useGetCategories";
 
 function Category() {
+  const [Categories] = useGetCategories();
   return (
-    <h1>
-      Möbel
-      <small> (500)</small>
-    </h1>
+    <>
+      {Categories[0]?.name}
+      {Categories[0]?.articleCount}
+    </>
   );
 }
 

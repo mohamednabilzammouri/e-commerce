@@ -1,6 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { formatter } from "../components/utils/Formatter";
-import { Article, ChildCategory } from "../types";
+import { Article, Category, ChildCategory } from "../types";
 
 // categoriesQuery accepts 1 argument wich is the first n elements of the categories list
 let categoriesQuery = (n: number): string => {
@@ -11,25 +10,26 @@ let categoriesQuery = (n: number): string => {
     childrenCategories {
       name
       urlPath
+      articleCount
+      ...categoryArticles
     }
-    categoryArticles(first: ${n}) {
-      articles {
-        name
-        variantName
-        prices {
-          currency
-          regular {
-            value
-          }
+    ...categoryArticles
+  }
+}
+
+fragment categoryArticles on Category {
+  categoryArticles(first: ${n}) {
+    articles {
+      name
+      variantName
+      prices {
+        currency
+        regular {
+          value
         }
-        images(
-          format: WEBP
-          maxWidth: 200
-          maxHeight: 200
-          limit: 1
-        ) {
-          path
-        }
+      }
+      images(format: WEBP, maxWidth: 200, maxHeight: 200, limit: 1) {
+        path
       }
     }
   }
@@ -51,50 +51,43 @@ export let getFirstNElements = function (
   );
 };
 
-//getArticleImage accepts 1 argument: you pass article as argument you get that article's image path as result
-export let getArticleImage = function (article: Article): any {
-  return article.images[0].path;
+// export const getCategoryData = function (
+//   data: Category[],
+//   categoryIndex: number
+// ): Category {
+//   return data[categoryIndex];
+// };
+
+// export const getChildrenCategories = function (
+//   res: AxiosResponse<any, any>,
+//   categoryIndex: number
+// ): Article[] {
+//   return res.data.data.categories[categoryIndex].childrenCategories;
+// };
+
+export const getArticlesFromPath = function (
+  currentPath: string,
+  currentCategory: Category
+) {
+  console.log("/" + currentCategory?.childrenCategories);
+  if (
+    currentCategory?.childrenCategories.find(
+      (childrenCategory) => "/" + childrenCategory.urlPath === currentPath
+    ) === undefined
+  )
+    return currentCategory?.categoryArticles.articles;
+
+  return currentCategory.childrenCategories.find(
+    (childrenCategory) => "/" + childrenCategory.urlPath === currentPath
+  )?.categoryArticles.articles;
 };
-
-//getArticleName accepts 1 argument: you pass article as argument you get that article's name  as result
-
-export let getArticleName = function (article: Article): string {
-  return article.name;
-};
-
-//getChildrenCategoryName accepts 1 argument: you pass ChildCategory as argument you get that ChildCategory's name  as result
-export let getChildrenCategoryName = function (
-  childrenCategory: ChildCategory
-): string {
-  return childrenCategory.name;
-};
-
-//getChildrenCategoryUrlPath accepts 1 argument: you pass ChildCategory as argument you get that ChildCategory's urlPath  as result
-export let getChildrenCategoryUrlPath = function (
-  childrenCategory: ChildCategory
-): string {
-  return childrenCategory.urlPath;
-};
-
-//getArticlePrice accepts 1 argument: you pass article as argument you get that article's price  as result
-
-export let getArticlePrice = function (article: Article): string {
-  return formatter.format(article.prices.regular.value / 100);
-};
-
-//getCategoryArticlesArray accepts 2 arguments: you pass the server response and the Index of the selected category
-// as arguments you get a list of all Articles as result
-
-export let getCategoryArticlesArray = function (
-  res: AxiosResponse<any, any>,
-  categoryIndex: number
-): Article[] {
-  return res.data.data.categories[categoryIndex].categoryArticles.articles;
-};
-
-export let getChildrenCategoryArray = function (
-  res: AxiosResponse<any, any>,
-  categoryIndex: number
-): Article[] {
-  return res.data.data.categories[categoryIndex].childrenCategories;
-};
+// return childrenCategories?.find(
+//   (childrenCategory) => "/" + childrenCategory.urlPath === currentPath
+// );
+//
+// const getChildCategoryDataFromUrl = (category: Category, route: string) => {
+//   return route === ""
+//     ? category.categoryArticles.articles
+//     : category.childrenCategories.find(({ urlPath }) => urlPath === route)
+//         ?.categoryArticles.articles;
+// };
