@@ -2,6 +2,8 @@ import React from "react";
 import SubCategories from "../categories/subCategories/SubCategories";
 
 function Sidebar() {
+  console.log("header rerendered");
+
   return (
     <div className={"sidebar"}>
       <h3>Kategorien</h3>

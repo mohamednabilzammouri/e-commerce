@@ -65,10 +65,10 @@ export let getFirstNElements = function (
 //   return res.data.data.categories[categoryIndex].childrenCategories;
 // };
 
-export const getArticlesFromPath = function (
+export const getChildrenArticlesFromPath = function (
   currentPath: string,
   currentCategory: Category
-) {
+): Article[] | undefined {
   console.log("/" + currentCategory?.childrenCategories);
   if (
     currentCategory?.childrenCategories.find(
@@ -81,10 +81,16 @@ export const getArticlesFromPath = function (
     (childrenCategory) => "/" + childrenCategory.urlPath === currentPath
   )?.categoryArticles.articles;
 };
-// return childrenCategories?.find(
-//   (childrenCategory) => "/" + childrenCategory.urlPath === currentPath
-// );
-//
+
+export const filterArticlesBySearch = function (
+  Articles: Article[] | undefined,
+  searchKeyWord: String
+): Article[] | undefined {
+  return Articles?.filter((article) =>
+    article.name.toLowerCase().includes(searchKeyWord.toLowerCase())
+  );
+};
+
 // const getChildCategoryDataFromUrl = (category: Category, route: string) => {
 //   return route === ""
 //     ? category.categoryArticles.articles

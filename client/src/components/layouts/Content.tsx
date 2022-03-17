@@ -1,21 +1,18 @@
 import React, { useContext } from "react";
-import { AppContext } from "../../Context/Context";
-import { getArticlesFromPath } from "../../services/ArticlesServices";
-
+import { CategoriesContext } from "../../Context/Context";
+import { getChildrenArticlesFromPath } from "../../services/ArticlesServices";
 import DisplayArticles from "../articles/DisplayArticles";
 
 function Content() {
-  const Categories = useContext(AppContext);
-
-  // console.log(Categories);
-  // console.log(window.location.pathname);
-
-  const articles = getArticlesFromPath(window.location.pathname, Categories[0]);
-  // console.log("aaaa :", articles);
+  const Categories = useContext(CategoriesContext);
+  const Articles = getChildrenArticlesFromPath(
+    window.location.pathname,
+    Categories[0]
+  );
 
   return (
     <>
-      <DisplayArticles Articles={articles} />
+      <DisplayArticles Articles={Articles} />
     </>
   );
 }

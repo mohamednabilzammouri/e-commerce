@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { getFirstNElements } from "../services/ArticlesServices";
 import { Category } from "../types";
 
@@ -7,10 +7,11 @@ function useGetCategories() {
 
   useEffect(() => {
     // getFirstNElements accepts 1 argument wich is the first n elements of the categories list
-
-    getFirstNElements(60).then((res) => {
-      setCategories(res.data.data.categories);
-    });
+    if (categories.length === 0) {
+      getFirstNElements(60).then((res) => {
+        setCategories(res.data.data.categories);
+      });
+    }
   }, []);
   return [categories];
 }

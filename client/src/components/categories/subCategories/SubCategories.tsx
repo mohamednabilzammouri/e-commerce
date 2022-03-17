@@ -1,19 +1,25 @@
 import React, { useContext } from "react";
-import { AppContext } from "../../../Context/Context";
-import useGetCategories from "../../../hooks/useGetCategories";
+import { BrowserRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { CategoriesContext, RouteContext } from "../../../Context/Context";
 
 function SubCategories() {
-  const Categories = useContext(AppContext);
+  const Categories = useContext(CategoriesContext);
+  const setCurrentRoute = useContext(RouteContext);
 
   return (
     <ul>
-      {Categories[0]?.childrenCategories.map(({ name, urlPath }) => {
-        return (
-          <li>
-            <a href={`/${urlPath}`}>{name}</a>
-          </li>
-        );
-      })}
+      <BrowserRouter>
+        {Categories[0]?.childrenCategories.map(({ name, urlPath }) => {
+          return (
+            <li>
+              <Link to={`/${urlPath}`} onClick={setCurrentRoute}>
+                {name}
+              </Link>
+            </li>
+          );
+        })}
+      </BrowserRouter>
     </ul>
   );
 }

@@ -1,13 +1,19 @@
 import React, { useContext } from "react";
-import { AppContext } from "../../Context/Context";
+import { CategoriesContext } from "../../Context/Context";
 
 function Category() {
-  const Categories = useContext(AppContext);
+  const Categories = useContext(CategoriesContext);
+  console.log("category rerendered");
 
   return (
     <>
-      {Categories[0]?.name}
-      {Categories[0]?.articleCount}
+      {Categories.map((category) => (
+        <>
+          <h3>
+            {category.name}({category.articleCount})
+          </h3>
+        </>
+      ))}
     </>
   );
 }
