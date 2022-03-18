@@ -16,7 +16,7 @@ function SubCategories() {
       <BrowserRouter>
         {Categories[0]?.childrenCategories.map(({ name, urlPath }) => {
           return (
-            <h2>
+            <h3>
               <Link
                 style={{
                   color: "black",
@@ -28,7 +28,7 @@ function SubCategories() {
               >
                 {name}
               </Link>
-            </h2>
+            </h3>
           );
         })}
       </BrowserRouter>

@@ -1,7 +1,7 @@
 import React from "react";
-import "../../ProductList.css";
-import { Article } from "../../types";
-import { formatPrice } from "../utils/Formatter";
+import "../../../ProductList.css";
+import { Article } from "../../../types";
+import { formatPrice } from "../../utils/Formatter";
 import { AddToCart, Image, Item, Name, Price } from "./ArticleCardStyle";
 
 export var ArticleCard = ({ article }: { article: Article }): any => {

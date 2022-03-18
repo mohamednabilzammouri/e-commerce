@@ -1,13 +1,19 @@
 import styled from "@emotion/styled";
 
 
+export const SearchInput = styled.input`
+  height: 2.5em;
+  margin-top: auto;
+  width: 30%;
+`;
+
 export const Logo = styled('img')`
 background-image: url(https://www.home24.de/corgi/static/media/home-24-logo.4f73bd13.svg);
-width: 15%;
+width: 8%;
 background-repeat: no-repeat;
-margin-left: 1em;
-height: 30%;
-margin-top: 1em;
+height: 100%;
+margin-top:0.5em;
+margin-left: 4em;
 cursor: pointer;
 `
 
@@ -19,7 +25,7 @@ flex-direction: row;
 justify-content: space-between;
 position: fixed;
 z-index: 10;
-padding-bottom: 1em;
+padding-bottom: 0.5em;
 box-shadow: 0px 10px 10px -15px #111;    
 
 `

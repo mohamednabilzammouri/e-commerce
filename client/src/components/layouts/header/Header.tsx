@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
-import { SearchContext } from "../../Context/Context";
-import Category from "../categories/Category";
-import { Logo, Container } from "./HeaderStyle";
-import { SearchInput } from "./SearchBar";
+import { SearchContext } from "../../../Context/Context";
+import Category from "../../categories/Category";
+import { Logo, Container, SearchInput } from "./HeaderStyle";
 
 function Header() {
   console.log("header rerendered");

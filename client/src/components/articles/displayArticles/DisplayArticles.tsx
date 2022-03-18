@@ -1,6 +1,6 @@
 import React from "react";
-import { Article } from "../../types";
-import { ArticleCard } from "./ArticleCard";
+import { Article } from "../../../types";
+import { ArticleCard } from "../articleCard/ArticleCard";
 import { Articles } from "./DisplayArticlesStyle";
 
 function DisplayArticles(props: any): any {

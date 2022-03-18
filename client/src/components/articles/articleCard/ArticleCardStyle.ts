@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { PrimaryButton } from "../../styles/entities/Buttons";
+import { PrimaryButton } from "../../../styles/entities/Buttons";
 
 
 export const Item = styled("div")`

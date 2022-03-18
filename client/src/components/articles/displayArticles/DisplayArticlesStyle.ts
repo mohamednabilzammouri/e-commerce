@@ -4,8 +4,9 @@ export const Articles = styled("div")`
 display: flex;
 flex-direction: row;
 flex-flow: wrap;
-justify-content: space-between;
-margin-left: 22%;
+justify-content: start;
+margin-left: 25%;
 position: absolute;
 top: 8em;
+width: 70%;
 `

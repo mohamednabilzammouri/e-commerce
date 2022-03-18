@@ -15,6 +15,7 @@ function Footer() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        marginBottom: "0",
       }}
     >
       Alle Preise sind in Euro (€) inkl. gesetzlicher Umsatzsteuer und
