@@ -1,15 +1,16 @@
 import React from "react";
 import { Article } from "../../types";
 import { ArticleCard } from "./ArticleCard";
+import { Articles } from "./DisplayArticlesStyle";
 
 function DisplayArticles(props: any): any {
   return (
     <>
-      <div className={"articles"}>
+      <Articles>
         {props.Articles?.map((article: Article) => (
           <ArticleCard article={article} />
         ))}
-      </div>
+      </Articles>
     </>
   );
 }

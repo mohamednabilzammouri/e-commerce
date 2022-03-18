@@ -4,7 +4,19 @@ function Footer() {
   console.log("header rerendered");
 
   return (
-    <div className={"footer"}>
+    <div
+      className={"footer"}
+      style={{
+        position: "fixed",
+        bottom: "0px",
+        width: "100%",
+        height: "2.5em",
+        backgroundColor: "white",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       Alle Preise sind in Euro (€) inkl. gesetzlicher Umsatzsteuer und
       Versandkosten.
     </div>

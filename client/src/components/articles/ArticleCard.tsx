@@ -2,6 +2,7 @@ import React from "react";
 import "../../ProductList.css";
 import { Article } from "../../types";
 import { formatPrice } from "../utils/Formatter";
+import { AddToCart, Image, Item, Name, Price } from "./ArticleCardStyle";
 
 export var ArticleCard = ({ article }: { article: Article }): any => {
   const imagePath = article.images[0].path;
@@ -10,11 +11,11 @@ export var ArticleCard = ({ article }: { article: Article }): any => {
   const formattedPrice = formatPrice(price);
 
   return (
-    <div className={"article"}>
-      <img alt="" src={imagePath} />
-      <div>{articleName}</div>
-      <div>{formattedPrice}</div>
-      <section role="button">Add to cart</section>
-    </div>
+    <Item>
+      <Image alt="" src={imagePath} />
+      <Name>{articleName}</Name>
+      <Price>{formattedPrice}</Price>
+      <AddToCart>Add to cart</AddToCart>
+    </Item>
   );
 };

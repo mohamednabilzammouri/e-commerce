@@ -8,21 +8,27 @@ function SubCategories() {
   const setCurrentRoute = useContext(RouteContext);
   const handleRouteCHange = function (CurrentRoute: string) {
     setCurrentRoute(CurrentRoute);
+    console.log("sub rendered");
   };
 
   return (
-    <ul>
+    <ul style={{ marginTop: "6em" }}>
       <BrowserRouter>
         {Categories[0]?.childrenCategories.map(({ name, urlPath }) => {
           return (
-            <li>
+            <h2>
               <Link
+                style={{
+                  color: "black",
+                  textDecoration: "none",
+                  marginLeft: "0.5em",
+                }}
                 to={`/${urlPath}`}
                 onClick={() => handleRouteCHange(urlPath)}
               >
                 {name}
               </Link>
-            </li>
+            </h2>
           );
         })}
       </BrowserRouter>

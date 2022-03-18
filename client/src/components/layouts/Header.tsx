@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { SearchContext } from "../../Context/Context";
 import Category from "../categories/Category";
+import { Logo, Container } from "./HeaderStyle";
+import { SearchInput } from "./SearchBar";
 
 function Header() {
   console.log("header rerendered");
@@ -11,13 +13,16 @@ function Header() {
   };
 
   return (
-    <>
-      <div className={"header"}>
-        <strong>home24</strong>
-        <input placeholder={"Search"} onChange={handleSearch} />
-        <Category />
-      </div>
-    </>
+    <Container>
+      <Logo
+        src="https://www.home24.de/corgi/static/media/home-24-logo.4f73bd13.svg"
+        alt=""
+        width={"20%"}
+      />
+      <SearchInput placeholder={"Search..."} onChange={handleSearch} />
+
+      <Category />
+    </Container>
   );
 }
 
