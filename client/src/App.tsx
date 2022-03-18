@@ -21,12 +21,19 @@ function App() {
   const [search, setSearch] = useState("");
   const [route, setRoute] = useState("");
 
-  const Articles = filterArticlesBySearch(
+  let Articles = filterArticlesBySearch(
     getChildrenArticlesFromPath(route, Categories[0]),
     search
   );
+
   const handleRoute = function () {
-    setRoute(window.location.pathname);
+    //setTimout is used because of the asynchronous behavios of javaScript sometimes handleRoute
+    //gets triggered before the current route changes
+    setTimeout(() => {
+      setRoute(window.location.pathname);
+    }, 1);
+
+    console.log(window.location.pathname + "aa");
   };
   const handleSearch = function (SeachKeyword: string) {
     setSearch(SeachKeyword);

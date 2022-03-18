@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { Article, Category, ChildCategory } from "../types";
+import { Article, Category } from "../types";
 
 // categoriesQuery accepts 1 argument wich is the first n elements of the categories list
 let categoriesQuery = (n: number): string => {
@@ -51,25 +51,11 @@ export let getFirstNElements = function (
   );
 };
 
-// export const getCategoryData = function (
-//   data: Category[],
-//   categoryIndex: number
-// ): Category {
-//   return data[categoryIndex];
-// };
-
-// export const getChildrenCategories = function (
-//   res: AxiosResponse<any, any>,
-//   categoryIndex: number
-// ): Article[] {
-//   return res.data.data.categories[categoryIndex].childrenCategories;
-// };
-
 export const getChildrenArticlesFromPath = function (
   currentPath: string,
   currentCategory: Category
 ): Article[] | undefined {
-  console.log("/" + currentCategory?.childrenCategories);
+  console.log("/aaa" + currentCategory?.childrenCategories);
   if (
     currentCategory?.childrenCategories.find(
       (childrenCategory) => "/" + childrenCategory.urlPath === currentPath
