@@ -3,7 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { CategoriesContext, RouteContext } from "../../../Context/Context";
 
-function SubCategories() {
+function SubCategories(): JSX.Element {
   const Categories = useContext(CategoriesContext);
   const setCurrentRoute = useContext(RouteContext);
   const handleRouteCHange = function (CurrentRoute: string) {

@@ -1,9 +1,9 @@
 import React from "react";
-import { Article } from "../../../types";
+import { Article, Category } from "../../../types";
 import { ArticleCard } from "../articleCard/ArticleCard";
 import { Articles } from "./DisplayArticlesStyle";
 
-function DisplayArticles(props: any): any {
+function DisplayArticles(props: any): JSX.Element {
   return (
     <>
       <Articles>

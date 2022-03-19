@@ -3,7 +3,7 @@ import { SearchContext } from "../../../Context/Context";
 import Category from "../../categories/Category";
 import { Logo, Container, SearchInput } from "./HeaderStyle";
 
-function Header() {
+function Header(): JSX.Element {
   console.log("header rerendered");
   const setSearch = useContext(SearchContext);
 

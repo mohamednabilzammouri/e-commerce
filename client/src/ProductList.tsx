@@ -18,7 +18,7 @@ class ArticleList extends React.Component {
   };
 
   componentDidMount() {
-    getFirstNElements(50).then((res) => {
+    getFirstNElements(50, 156126).then((res) => {
       console.log(res.data);
       this.setState({ categories: res.data.categories });
     });

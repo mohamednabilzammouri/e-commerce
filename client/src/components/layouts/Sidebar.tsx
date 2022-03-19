@@ -1,7 +1,7 @@
 import React from "react";
 import SubCategories from "../categories/subCategories/SubCategories";
 
-function Sidebar() {
+function Sidebar(): JSX.Element {
   console.log("header rerendered");
 
   return (
