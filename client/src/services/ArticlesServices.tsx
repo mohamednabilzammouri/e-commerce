@@ -2,9 +2,9 @@ import axios, { AxiosResponse } from "axios";
 import { Article, Category } from "../types";
 
 // categoriesQuery accepts 1 argument wich is the first n elements of the categories list
-let categoriesQuery = (n: number): string => {
+let categoriesQuery = (FisrtNelements: number, ID: number): string => {
   return `{
-  categories(ids: "156126", locale: de_DE) {
+  categories(ids: "${ID}", locale: de_DE) {
     name
     articleCount
     childrenCategories {
@@ -18,7 +18,7 @@ let categoriesQuery = (n: number): string => {
 }
 
 fragment categoryArticles on Category {
-  categoryArticles(first: ${n}) {
+  categoryArticles(first: ${FisrtNelements}) {
     articles {
       name
       variantName
@@ -28,7 +28,7 @@ fragment categoryArticles on Category {
           value
         }
       }
-      images(format: WEBP, maxWidth: 200, maxHeight: 200, limit: 1) {
+      images(format: WEBP, maxWidth: 800, maxHeight: 800, limit: 8) {
         path
       }
     }
@@ -38,12 +38,13 @@ fragment categoryArticles on Category {
 
 // getFirstNElements accepts 1 argument wich is the first n elements of the categories list
 export let getFirstNElements = function (
-  n: number
+  FisrtNelements: number,
+  ID: number
 ): Promise<AxiosResponse<any, any>> {
   return axios.post(
     "/graphql",
     JSON.stringify({
-      query: categoriesQuery(n),
+      query: categoriesQuery(FisrtNelements, ID),
     }),
     {
       headers: { "Content-Type": "application/json" },
@@ -51,11 +52,11 @@ export let getFirstNElements = function (
   );
 };
 
+//getChildrenArticlesFromPath returns a list of child category articles from their path
 export const getChildrenArticlesFromPath = function (
   currentPath: string,
   currentCategory: Category
 ): Article[] | undefined {
-  console.log("/aaa" + currentCategory?.childrenCategories);
   if (
     currentCategory?.childrenCategories.find(
       (childrenCategory) => "/" + childrenCategory.urlPath === currentPath
@@ -67,7 +68,7 @@ export const getChildrenArticlesFromPath = function (
     (childrenCategory) => "/" + childrenCategory.urlPath === currentPath
   )?.categoryArticles.articles;
 };
-
+//filterArticlesBySearch filters Articles based on the searchbar input value
 export const filterArticlesBySearch = function (
   Articles: Article[] | undefined,
   searchKeyWord: String
@@ -76,10 +77,3 @@ export const filterArticlesBySearch = function (
     article.name.toLowerCase().includes(searchKeyWord.toLowerCase())
   );
 };
-
-// const getChildCategoryDataFromUrl = (category: Category, route: string) => {
-//   return route === ""
-//     ? category.categoryArticles.articles
-//     : category.childrenCategories.find(({ urlPath }) => urlPath === route)
-//         ?.categoryArticles.articles;
-// };

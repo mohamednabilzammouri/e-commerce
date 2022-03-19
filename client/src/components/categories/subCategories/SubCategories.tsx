@@ -3,26 +3,32 @@ import { BrowserRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { CategoriesContext, RouteContext } from "../../../Context/Context";
 
-function SubCategories() {
+function SubCategories(): JSX.Element {
   const Categories = useContext(CategoriesContext);
   const setCurrentRoute = useContext(RouteContext);
   const handleRouteCHange = function (CurrentRoute: string) {
     setCurrentRoute(CurrentRoute);
+    console.log("sub rendered");
   };
 
   return (
-    <ul>
+    <ul style={{ marginTop: "6em" }}>
       <BrowserRouter>
         {Categories[0]?.childrenCategories.map(({ name, urlPath }) => {
           return (
-            <li>
+            <h3>
               <Link
+                style={{
+                  color: "black",
+                  textDecoration: "none",
+                  marginLeft: "0.5em",
+                }}
                 to={`/${urlPath}`}
                 onClick={() => handleRouteCHange(urlPath)}
               >
                 {name}
               </Link>
-            </li>
+            </h3>
           );
         })}
       </BrowserRouter>

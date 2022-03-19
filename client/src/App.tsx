@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import DisplayArticles from "./components/articles/DisplayArticles";
+import DisplayArticles from "./components/articles/displayArticles/DisplayArticles";
 
 import Footer from "./components/layouts/Footer";
-import Header from "./components/layouts/Header";
+import Header from "./components/layouts/header/Header";
 import Sidebar from "./components/layouts/Sidebar";
 import {
   CategoriesContext,
@@ -31,7 +31,7 @@ function App() {
     //gets triggered before the current route changes
     setTimeout(() => {
       setRoute(window.location.pathname);
-    }, 1);
+    }, 0);
 
     console.log(window.location.pathname + "aa");
   };
@@ -41,18 +41,16 @@ function App() {
 
   return (
     <>
-      <div className={"page"}>
-        <CategoriesContext.Provider value={Categories}>
-          <RouteContext.Provider value={handleRoute}>
-            <SearchContext.Provider value={handleSearch}>
-              <Header />
-              <Sidebar />
-              <DisplayArticles Articles={Articles} />
-              <Footer />
-            </SearchContext.Provider>
-          </RouteContext.Provider>
-        </CategoriesContext.Provider>
-      </div>
+      <CategoriesContext.Provider value={Categories}>
+        <RouteContext.Provider value={handleRoute}>
+          <SearchContext.Provider value={handleSearch}>
+            <Header />
+            <Sidebar />
+            <DisplayArticles Articles={Articles} />
+            <Footer />
+          </SearchContext.Provider>
+        </RouteContext.Provider>
+      </CategoriesContext.Provider>
     </>
   );
 }

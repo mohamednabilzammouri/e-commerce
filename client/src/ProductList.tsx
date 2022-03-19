@@ -3,10 +3,10 @@ import React from "react";
 import { Category } from "./types";
 
 import { getFirstNElements } from "./services/ArticlesServices";
-import { ArticleCard } from "./components/articles/ArticleCard";
 import Loader from "./components/utils/Loader";
 import Footer from "./components/layouts/Footer";
-import Header from "./components/layouts/Header";
+import Header from "./components/layouts/header/Header";
+import { ArticleCard } from "./components/articles/articleCard/ArticleCard";
 
 type State = {
   categories: Category[];
@@ -18,7 +18,7 @@ class ArticleList extends React.Component {
   };
 
   componentDidMount() {
-    getFirstNElements(50).then((res) => {
+    getFirstNElements(50, 156126).then((res) => {
       console.log(res.data);
       this.setState({ categories: res.data.categories });
     });

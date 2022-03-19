@@ -9,9 +9,7 @@ function Category() {
     <>
       {Categories.map((category) => (
         <>
-          <h3>
-            {category.name}({category.articleCount})
-          </h3>
+          <h3>{/* {category.name}({category.articleCount}) */}</h3>
         </>
       ))}
     </>
