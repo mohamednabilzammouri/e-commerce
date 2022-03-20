@@ -4,6 +4,7 @@ import Footer from "./components/layouts/footer/Footer";
 
 import Header from "./components/layouts/header/Header";
 import Sidebar from "./components/layouts/SideBar/Sidebar";
+import { categoriesID } from "./config";
 import {
   CategoriesContext,
   RouteContext,
@@ -16,7 +17,7 @@ import {
 } from "./services/ArticlesServices";
 
 function App() {
-  const [Categories] = useGetCategories();
+  const [Categories] = useGetCategories(categoriesID.Textilien);
   const [search, setSearch] = useState("");
   const [route, setRoute] = useState("");
 
