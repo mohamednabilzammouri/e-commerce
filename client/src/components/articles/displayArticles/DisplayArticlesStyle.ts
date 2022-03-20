@@ -8,6 +8,6 @@ justify-content: start;
 margin-left: 25%;
 position: absolute;
 width: 70%;
-margin-top: 3em;
 padding-bottom: 3em;
+margin-top: 5em;
 `

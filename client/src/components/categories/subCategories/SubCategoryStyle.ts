@@ -15,13 +15,16 @@ padding: 0.3em 0.5em;
 background-color: ${({isActive})=>(isActive?colors.primary:'white')};
 color : ${({isActive})=>(isActive?'white':'black')};
 
+
 &:hover {
   background-color: ${colors.primary};
+  color: white;
 }
 
 
 `
 
 export const SubCategoriesContainer = styled('ul')`
-padding-left: "0" 
+padding-left: "0" ;
+
 `

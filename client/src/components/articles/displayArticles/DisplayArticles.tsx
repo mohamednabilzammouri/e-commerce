@@ -1,5 +1,6 @@
 import React from "react";
 import { Article } from "../../../types";
+import Spinner from "../../utils/Loader/Loader";
 import { ArticleCard } from "../articleCard/ArticleCard";
 import { Articles } from "./DisplayArticlesStyle";
 
@@ -9,13 +10,15 @@ function DisplayArticles(props: any): JSX.Element {
   return (
     <>
       {props.Articles === undefined ? (
-        <></>
+        <Spinner />
       ) : (
-        <Articles>
-          {props.Articles?.map((article: Article) => (
-            <ArticleCard article={article} />
-          ))}
-        </Articles>
+        <>
+          <Articles>
+            {props.Articles?.map((article: Article) => (
+              <ArticleCard article={article} />
+            ))}
+          </Articles>
+        </>
       )}
     </>
   );

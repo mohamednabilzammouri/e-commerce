@@ -16,7 +16,6 @@ let categoriesQuery = (FisrtNelements: number, ID: number): string => {
     ...categoryArticles
   }
 }
-
 fragment categoryArticles on Category {
   categoryArticles(first: ${FisrtNelements}) {
     articles {

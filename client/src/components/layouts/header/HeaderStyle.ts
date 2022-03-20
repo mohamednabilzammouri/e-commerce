@@ -5,7 +5,10 @@ export const SearchInput = styled.input`
   height: 2.5em;
   margin-top: auto;
   width: 30%;
-`;
+  margin: auto;
+
+
+`
 
 export const Logo = styled('img')`
 background-image: url(https://www.home24.de/corgi/static/media/home-24-logo.4f73bd13.svg);
@@ -27,6 +30,5 @@ position: fixed;
 top:0;
 z-index: 10;
 padding-bottom: 0.5em;
-box-shadow: 0px 10px 10px -15px #111;    
 
 `

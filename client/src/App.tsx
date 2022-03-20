@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import DisplayArticles from "./components/articles/displayArticles/DisplayArticles";
+import Footer from "./components/layouts/footer/Footer";
 
-import Footer from "./components/layouts/Footer";
 import Header from "./components/layouts/header/Header";
 import Sidebar from "./components/layouts/SideBar/Sidebar";
 import {
