@@ -3,11 +3,8 @@ import styled from "@emotion/styled";
 
 export const SearchInput = styled.input`
   height: 2.5em;
-  margin-top: auto;
   width: 30%;
-  margin: auto;
-
-
+margin-left: 25%;
 `
 
 export const Logo = styled('img')`
@@ -23,12 +20,10 @@ cursor: pointer;
 export const Container = styled('div')`
 background-color: white;
 width: 100%;
-display: flex;
-flex-direction: row;
-justify-content: space-between;
 position: fixed;
 top:0;
 z-index: 10;
 padding-bottom: 0.5em;
+box-shadow: 0 2px 2px -2px gray;
 
 `

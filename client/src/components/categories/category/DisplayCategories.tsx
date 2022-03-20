@@ -1,17 +1,17 @@
-import React, { useContext } from "react";
+import React from "react";
 import { categoriesID } from "../../../config";
-import { SearchContext } from "../../../Context/Context";
 import { MyCategory, StyledCategories } from "./CategoryStyle";
 
 function DisplayCategories() {
-  const setSearch = useContext(SearchContext);
   console.log("category rerendered");
+  let MyCategories = [];
+  for (let category in categoriesID) MyCategories.push(category);
 
   return (
     <StyledCategories>
-      <MyCategory>Lampen</MyCategory>
-      <MyCategory>Accessoires</MyCategory>
-      <MyCategory>Textilien</MyCategory>
+      {MyCategories.map((categoryName) => (
+        <MyCategory>{categoryName} </MyCategory>
+      ))}
     </StyledCategories>
   );
 }

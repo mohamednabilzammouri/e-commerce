@@ -4,13 +4,13 @@ import { Category } from "../types";
 
 //useGetCategories responsability is to send a request to the server then returns an array of categories
 
-function useGetCategories() {
+function useGetCategories(categoryID: number) {
   const [categories, setCategories] = useState<Category[]>([]);
+  console.log("useGetCategories mrigla", categoryID);
 
   useEffect(() => {
-    // getFirstNElements accepts 1 argument wich is the first n elements of the categories list
     if (categories.length === 0) {
-      getFirstNElements(60, 156126).then((res) => {
+      getFirstNElements(60, categoryID).then((res) => {
         setCategories(res.data.data.categories);
       });
     }
