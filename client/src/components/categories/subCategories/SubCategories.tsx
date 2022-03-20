@@ -1,7 +1,7 @@
 import React, { useCallback, useContext } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { CategoriesContext, RouteContext } from "../../../Context/Context";
-import { SubCategoryLink } from "./SubCategoryStyle";
+import { SubCategoriesContainer, SubCategoryLink } from "./SubCategoryStyle";
 
 export function SubCategories(): JSX.Element {
   const Categories = useContext(CategoriesContext);
@@ -11,9 +11,10 @@ export function SubCategories(): JSX.Element {
     setCurrentRoute(CurrentRoute);
     console.log("subcategory rendered");
   }, []);
+  const currentPath = window.location.pathname;
 
   return (
-    <ul>
+    <SubCategoriesContainer>
       <BrowserRouter>
         {Categories[0]?.childrenCategories.map(({ name, urlPath }) => {
           return (
@@ -21,6 +22,7 @@ export function SubCategories(): JSX.Element {
               <SubCategoryLink
                 to={`/${urlPath}`}
                 onClick={() => handleRouteCHange(urlPath)}
+                isActive={currentPath === "/" + urlPath}
               >
                 {name}
               </SubCategoryLink>
@@ -28,6 +30,6 @@ export function SubCategories(): JSX.Element {
           );
         })}
       </BrowserRouter>
-    </ul>
+    </SubCategoriesContainer>
   );
 }

@@ -5,5 +5,6 @@ export const MySideBar = styled('div')`
       width: 20%;
       background-color: white;
       top: 8em;
+      left: 0;
   
 `
