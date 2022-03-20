@@ -1,16 +1,22 @@
 import React from "react";
-import { Article, Category } from "../../../types";
+import { Article } from "../../../types";
 import { ArticleCard } from "../articleCard/ArticleCard";
 import { Articles } from "./DisplayArticlesStyle";
 
 function DisplayArticles(props: any): JSX.Element {
+  console.log(props, "nabil");
+
   return (
     <>
-      <Articles>
-        {props.Articles?.map((article: Article) => (
-          <ArticleCard article={article} />
-        ))}
-      </Articles>
+      {props.Articles === undefined ? (
+        <></>
+      ) : (
+        <Articles>
+          {props.Articles?.map((article: Article) => (
+            <ArticleCard article={article} />
+          ))}
+        </Articles>
+      )}
     </>
   );
 }

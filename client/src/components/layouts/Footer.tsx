@@ -1,7 +1,8 @@
 import React from "react";
+import { memo } from "react";
 
 function Footer(): JSX.Element {
-  console.log("header rerendered");
+  console.log("footer rerendered");
 
   return (
     <div
@@ -24,4 +25,4 @@ function Footer(): JSX.Element {
   );
 }
 
-export default Footer;
+export default memo(Footer);

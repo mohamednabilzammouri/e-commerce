@@ -7,6 +7,7 @@ flex-flow: wrap;
 justify-content: start;
 margin-left: 25%;
 position: absolute;
-top: 8em;
 width: 70%;
+margin-top: 3em;
+padding-bottom: 3em;
 `
