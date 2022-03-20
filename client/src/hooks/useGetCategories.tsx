@@ -6,9 +6,9 @@ import { Category } from "../types";
 
 function useGetCategories(categoryID: number) {
   const [categories, setCategories] = useState<Category[]>([]);
+  console.log("useGetCategories mrigla", categoryID);
 
   useEffect(() => {
-    // getFirstNElements accepts 1 argument wich is the first n elements of the categories list
     if (categories.length === 0) {
       getFirstNElements(60, categoryID).then((res) => {
         setCategories(res.data.data.categories);

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DisplayArticles from "./components/articles/displayArticles/DisplayArticles";
 import Footer from "./components/layouts/footer/Footer";
 
@@ -17,15 +17,13 @@ import {
 } from "./services/ArticlesServices";
 
 function App() {
-  const [Categories] = useGetCategories(categoriesID.Textilien);
+  const [Categories] = useGetCategories(categoriesID.Mobel);
   const [search, setSearch] = useState("");
   const [route, setRoute] = useState("");
-
   let Articles = filterArticlesBySearch(
     getChildrenArticlesFromPath(route, Categories[0]),
     search
   );
-
   const handleRoute = function () {
     //setTimout is used because of the asynchronous behavios of javaScript sometimes handleRoute
     //gets triggered before the current route changes

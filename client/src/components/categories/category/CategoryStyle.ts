@@ -14,12 +14,11 @@ height: 100%;
 export const StyledCategories = styled('div')`
 display: flex;
 justify-content: center;
-top: 3.77em;
 z-index: 100000;
-position: absolute;
 background-color: white;
 width: 100%;
-box-shadow: 0px 10px 10px -15px #111;    
+box-shadow: 0px 10px 10px -15px #111;   
+align-self: flex-start;
 
 ;
 
