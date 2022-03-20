@@ -7,9 +7,7 @@ function Sidebar(): JSX.Element {
 
   return (
     <MySideBar>
-      <ul>
-        <SubCategories />
-      </ul>
+      <SubCategories />
     </MySideBar>
   );
 }
