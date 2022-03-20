@@ -1,33 +1,29 @@
-import React, { useContext } from "react";
+import React, { useCallback, useContext } from "react";
 import { BrowserRouter } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { CategoriesContext, RouteContext } from "../../../Context/Context";
+import { SubCategoryLink } from "./SubCategoryStyle";
 
-function SubCategories(): JSX.Element {
+export function SubCategories(): JSX.Element {
   const Categories = useContext(CategoriesContext);
   const setCurrentRoute = useContext(RouteContext);
-  const handleRouteCHange = function (CurrentRoute: string) {
+
+  const handleRouteCHange = useCallback((CurrentRoute: string) => {
     setCurrentRoute(CurrentRoute);
-    console.log("sub rendered");
-  };
+    console.log("subcategory rendered");
+  }, []);
 
   return (
-    <ul style={{ marginTop: "6em" }}>
+    <ul>
       <BrowserRouter>
         {Categories[0]?.childrenCategories.map(({ name, urlPath }) => {
           return (
             <h3>
-              <Link
-                style={{
-                  color: "black",
-                  textDecoration: "none",
-                  marginLeft: "0.5em",
-                }}
+              <SubCategoryLink
                 to={`/${urlPath}`}
                 onClick={() => handleRouteCHange(urlPath)}
               >
                 {name}
-              </Link>
+              </SubCategoryLink>
             </h3>
           );
         })}
@@ -35,5 +31,3 @@ function SubCategories(): JSX.Element {
     </ul>
   );
 }
-
-export default SubCategories;

@@ -3,14 +3,13 @@ import DisplayArticles from "./components/articles/displayArticles/DisplayArticl
 
 import Footer from "./components/layouts/Footer";
 import Header from "./components/layouts/header/Header";
-import Sidebar from "./components/layouts/Sidebar";
+import Sidebar from "./components/layouts/SideBar/Sidebar";
 import {
   CategoriesContext,
   RouteContext,
   SearchContext,
 } from "./Context/Context";
 import useGetCategories from "./hooks/useGetCategories";
-import "./ProductList.css";
 import {
   filterArticlesBySearch,
   getChildrenArticlesFromPath,
@@ -32,8 +31,6 @@ function App() {
     setTimeout(() => {
       setRoute(window.location.pathname);
     }, 0);
-
-    console.log(window.location.pathname + "aa");
   };
   const handleSearch = function (SeachKeyword: string) {
     setSearch(SeachKeyword);

@@ -1,5 +1,3 @@
-import { Article } from "../../types";
-
 var intlNumberFormatValues = {
   Germany: ["de-DE", "currency", "EUR"],
   Tunisia: ["ar-TN", "currency", "TND"],

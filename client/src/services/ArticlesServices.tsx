@@ -28,7 +28,8 @@ fragment categoryArticles on Category {
           value
         }
       }
-      images(format: WEBP, maxWidth: 800, maxHeight: 800, limit: 8) {
+      images(format: WEBP, maxWidth: 800, maxHeight: 800, limit: 8
+        ) {
         path
       }
     }

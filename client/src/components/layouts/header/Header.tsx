@@ -2,9 +2,10 @@ import React, { useContext } from "react";
 import { SearchContext } from "../../../Context/Context";
 import Category from "../../categories/Category";
 import { Logo, Container, SearchInput } from "./HeaderStyle";
+import { memo } from "react";
 
 function Header(): JSX.Element {
-  console.log("header rerendered");
+  console.log("headerr rerendered");
   const setSearch = useContext(SearchContext);
 
   const handleSearch = function (searchKeyWord: any) {
@@ -25,4 +26,4 @@ function Header(): JSX.Element {
   );
 }
 
-export default Header;
+export default memo(Header);

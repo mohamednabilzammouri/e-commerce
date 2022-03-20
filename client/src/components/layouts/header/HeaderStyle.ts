@@ -24,6 +24,7 @@ display: flex;
 flex-direction: row;
 justify-content: space-between;
 position: fixed;
+top:0;
 z-index: 10;
 padding-bottom: 0.5em;
 box-shadow: 0px 10px 10px -15px #111;    
