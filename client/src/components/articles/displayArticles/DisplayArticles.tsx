@@ -6,13 +6,13 @@ import Spinner from "../../Loader/Loader";
 import { ArticleCard } from "../articleCard/ArticleCard";
 import { Articles } from "./DisplayArticlesStyle";
 
-interface DisplayArticlesPropsType {
+type DisplayArticlesPropsType = {
   ArticlesLoaderAndError: {
     DisplayedArticles: Article[] | undefined;
     loader: Boolean;
     error: Boolean;
   };
-}
+};
 
 function DisplayArticles(props: DisplayArticlesPropsType): JSX.Element {
   const { DisplayedArticles, loader, error } = props.ArticlesLoaderAndError;

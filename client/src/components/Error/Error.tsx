@@ -1,7 +1,7 @@
 import React from "react";
 import { StyledError } from "./ErrorStyle";
 
-function Error() {
+function Error(): JSX.Element {
   return <StyledError>OOPS ... Something Went Rong!</StyledError>;
 }
 

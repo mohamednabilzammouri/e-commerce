@@ -1,7 +1,7 @@
 import React from "react";
 import { Loader } from "./LoaderStyle";
 
-function Spinner() {
+function Spinner(): JSX.Element {
   return <Loader />;
 }
 
