@@ -1,5 +1,4 @@
 import React from "react";
-import "../../../ProductList.css";
 import { Article } from "../../../types/types";
 import { formatPrice } from "../../utils/Formatter";
 import { AddToCart, Image, Item, Name, Price } from "./ArticleCardStyle";
