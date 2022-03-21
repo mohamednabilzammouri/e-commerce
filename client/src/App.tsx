@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import DisplayArticles from "./components/articles/displayArticles/DisplayArticles";
 import Footer from "./components/layouts/footer/Footer";
 
@@ -8,7 +8,6 @@ import { categoriesID } from "./config";
 import {
   CategoriesContext,
   IdContext,
-  LoaderContext,
   RouteContext,
   SearchContext,
 } from "./Context/Context";
