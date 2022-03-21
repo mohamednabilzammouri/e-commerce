@@ -19,7 +19,6 @@ import {
 
 function App() {
   const [currentId, setCurrentId] = useState(categoriesID.Mobel);
-
   const { categories, loader, error } = useGetCategories(currentId);
   const [search, setSearch] = useState("");
   const [route, setRoute] = useState("");

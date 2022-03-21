@@ -6,6 +6,7 @@ import { MyCategory, StyledCategories } from "./CategoryStyle";
 
 function DisplayCategories() {
   const setCategoryId = useContext(IdContext);
+  //handleId will send the id of the category to the context API to be used in App.tsx
   const handleId = function (id: number) {
     setCategoryId(id);
   };

@@ -7,7 +7,7 @@ import DisplayCategories from "../../categories/category/DisplayCategories";
 function Header(): JSX.Element {
   console.log("headerr rerendered");
   const setSearch = useContext(SearchContext);
-
+  //handleSearch will send the current value of the search input to the context api to be used to filter articles
   const handleSearch = function (
     searchKeyWord: React.ChangeEvent<HTMLInputElement>
   ) {

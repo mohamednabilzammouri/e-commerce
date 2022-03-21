@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 import { Article, Category } from "../types/types";
 
-// categoriesQuery accepts 1 argument wich is the first n elements of the categories list
+// categoriesQuery accepts 2 argument wich is the first n elements of the categories list and the ID of the category
 let categoriesQuery = (FisrtNelements: number, ID: number): string => {
   return `{
   categories(ids: "${ID}", locale: de_DE) {
@@ -44,7 +44,7 @@ interface ServerData {
   categories: Category[];
 }
 
-// getFirstNElements accepts 1 argument wich is the first n elements of the categories list
+// getFirstNElements accepts 2 argument wich is the first n elements of the categories list and the ID of the category
 export let getFirstNElements = function (
   FisrtNelements: number,
   ID: number
