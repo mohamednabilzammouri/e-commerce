@@ -36,11 +36,19 @@ fragment categoryArticles on Category {
 }`;
 };
 
+interface ServerResponse {
+  data: ServerData;
+}
+
+interface ServerData {
+  categories: Category[];
+}
+
 // getFirstNElements accepts 1 argument wich is the first n elements of the categories list
 export let getFirstNElements = function (
   FisrtNelements: number,
   ID: number
-): Promise<AxiosResponse<Category[]>> {
+): Promise<AxiosResponse<ServerResponse>> {
   return axios.post(
     "/graphql",
     JSON.stringify({
