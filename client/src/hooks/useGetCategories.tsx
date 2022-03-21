@@ -15,12 +15,10 @@ function useGetCategories(categoryID: number) {
       .then((res) => {
         setCategories(res.data.data.categories);
         setError(false);
-
         setLoader(false);
       })
       .catch(() => {
         setError(true);
-        console.log("error");
       });
   }, [categoryID]);
   return { categories, loader, error };
