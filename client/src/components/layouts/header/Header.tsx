@@ -8,7 +8,9 @@ function Header(): JSX.Element {
   console.log("headerr rerendered");
   const setSearch = useContext(SearchContext);
 
-  const handleSearch = function (searchKeyWord: any) {
+  const handleSearch = function (
+    searchKeyWord: React.ChangeEvent<HTMLInputElement>
+  ) {
     setSearch(searchKeyWord.target.value);
   };
 
