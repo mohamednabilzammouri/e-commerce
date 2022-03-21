@@ -1,23 +1,31 @@
 import React from "react";
-import { Article } from "../../../types";
-import Error from "../../utils/Error/Error";
-import Spinner from "../../utils/Loader/Loader";
+import { Article } from "../../../types/types";
+import Error from "../../Error/Error";
+import Spinner from "../../Loader/Loader";
+
 import { ArticleCard } from "../articleCard/ArticleCard";
 import { Articles } from "./DisplayArticlesStyle";
 
-function DisplayArticles(props: any): JSX.Element {
-  console.log(props, "nabil");
+interface DisplayArticlesPropsType {
+  ArticlesLoaderAndError: {
+    DisplayedArticles: Article[] | undefined;
+    loader: Boolean;
+    error: Boolean;
+  };
+}
 
+function DisplayArticles(props: DisplayArticlesPropsType): JSX.Element {
+  const { DisplayedArticles, loader, error } = props.ArticlesLoaderAndError;
   return (
     <>
-      {props.ArticlesLoaderAndError.error ? (
+      {error ? (
         <Error />
-      ) : props.ArticlesLoaderAndError.loader ? (
+      ) : loader ? (
         <Spinner />
       ) : (
         <>
           <Articles>
-            {props.ArticlesLoaderAndError.Articles?.map((article: Article) => (
+            {DisplayedArticles?.map((article: Article) => (
               <ArticleCard article={article} />
             ))}
           </Articles>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getFirstNElements } from "../services/ArticlesServices";
-import { Category } from "../types";
+import { Category } from "../types/types";
 
 //useGetCategories responsability is to send a request to the server then returns an array of categories
 

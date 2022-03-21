@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { Category } from "../types";
+import { Category } from "../types/types";
 const categories: Category[] = [];
 const Route: any = "/";
 const handleSearch: any = "";

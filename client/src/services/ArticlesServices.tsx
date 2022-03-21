@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { Article, Category } from "../types";
+import { Article, Category } from "../types/types";
 
 // categoriesQuery accepts 1 argument wich is the first n elements of the categories list
 let categoriesQuery = (FisrtNelements: number, ID: number): string => {

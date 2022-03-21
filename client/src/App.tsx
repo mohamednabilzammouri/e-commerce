@@ -24,7 +24,7 @@ function App() {
   const [search, setSearch] = useState("");
   const [route, setRoute] = useState("");
 
-  let Articles = filterArticlesBySearch(
+  let DisplayedArticles = filterArticlesBySearch(
     getChildrenArticlesFromPath(route, categories[0]),
     search
   );
@@ -53,7 +53,7 @@ function App() {
               <Header />
               <Sidebar />
               <DisplayArticles
-                ArticlesLoaderAndError={{ Articles, loader, error }}
+                ArticlesLoaderAndError={{ DisplayedArticles, loader, error }}
               />
               <Footer />
             </IdContext.Provider>

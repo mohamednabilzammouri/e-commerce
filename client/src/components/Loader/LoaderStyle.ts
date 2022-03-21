@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { colors } from "../../../styles/Colors";
+import { colors } from "../../styles/Colors";
 
 
 export const Loader = styled('div')`

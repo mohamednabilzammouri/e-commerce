@@ -16,7 +16,7 @@ export function SubCategories(): JSX.Element {
   return (
     <SubCategoriesContainer>
       <BrowserRouter>
-        {Categories[0]?.childrenCategories.map(({ name, urlPath }) => {
+        {Categories[0]?.childrenCategories.map(({ name, urlPath }: any) => {
           return (
             <h3>
               <SubCategoryLink
