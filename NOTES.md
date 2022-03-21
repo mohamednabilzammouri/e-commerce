@@ -19,4 +19,5 @@ Changing The images number to use it later for a carousel
 and the image resolution to be more attractive
 
 Added other categories besides Mobel like (Garten, Lampen, Accessoires, Textilien)
-which i found in the GraphQl request in home24.de ===> check config.ts file (To work as expected i needed to remove the cache from the backend)
+which i found in the GraphQl request in home24.de ===> check config.ts file
+(To work as expected i needed to remove the cache from the backend)
