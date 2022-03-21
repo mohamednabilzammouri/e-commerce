@@ -10,5 +10,4 @@ position: absolute;
 width: 70%;
 padding-bottom: 3em;
 margin-top: 5em;
-height: 100%;
 `
