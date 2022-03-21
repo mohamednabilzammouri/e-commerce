@@ -1,6 +1,6 @@
 import React from "react";
 import { Article } from "../../../types/types";
-import { formatPrice } from "../../utils/Formatter";
+import { formatPrice } from "../../../utils/Formatter";
 import { AddToCart, Image, Item, Name, Price } from "./ArticleCardStyle";
 
 export var ArticleCard = ({ article }: { article: Article }): JSX.Element => {
