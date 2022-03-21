@@ -20,7 +20,7 @@ import {
 function App() {
   const [currentId, setCurrentId] = useState(categoriesID.Mobel);
 
-  const { categories, loader } = useGetCategories(currentId);
+  const { categories, loader, error } = useGetCategories(currentId);
   const [search, setSearch] = useState("");
   const [route, setRoute] = useState("");
 
@@ -52,7 +52,9 @@ function App() {
             <IdContext.Provider value={handleID}>
               <Header />
               <Sidebar />
-              <DisplayArticles ArticlesAndLoader={{ Articles, loader }} />
+              <DisplayArticles
+                ArticlesLoaderAndError={{ Articles, loader, error }}
+              />
               <Footer />
             </IdContext.Provider>
           </SearchContext.Provider>

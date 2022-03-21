@@ -7,15 +7,23 @@ import { Category } from "../types";
 function useGetCategories(categoryID: number) {
   const [categories, setCategories] = useState<Category[]>([]);
   const [loader, setLoader] = useState<boolean>(true);
+  const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
     setLoader(true);
-    getFirstNElements(60, categoryID).then((res) => {
-      setCategories(res.data.data.categories);
-      setLoader(false);
-    });
+    getFirstNElements(60, categoryID)
+      .then((res) => {
+        setCategories(res.data.data.categories);
+        setError(false);
+
+        setLoader(false);
+      })
+      .catch(() => {
+        setError(true);
+        console.log("error");
+      });
   }, [categoryID]);
-  return { categories, loader };
+  return { categories, loader, error };
 }
 
 export default useGetCategories;
