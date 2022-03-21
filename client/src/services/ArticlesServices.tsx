@@ -40,7 +40,7 @@ fragment categoryArticles on Category {
 export let getFirstNElements = function (
   FisrtNelements: number,
   ID: number
-): Promise<AxiosResponse<any, any>> {
+): Promise<AxiosResponse<Category[]>> {
   return axios.post(
     "/graphql",
     JSON.stringify({
