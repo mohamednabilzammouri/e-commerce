@@ -9,12 +9,12 @@ function DisplayArticles(props: any): JSX.Element {
 
   return (
     <>
-      {props.Articles === undefined ? (
+      {props.ArticlesAndLoader.loader ? (
         <Spinner />
       ) : (
         <>
           <Articles>
-            {props.Articles?.map((article: Article) => (
+            {props.ArticlesAndLoader.Articles?.map((article: Article) => (
               <ArticleCard article={article} />
             ))}
           </Articles>

@@ -27,4 +27,5 @@ color : ${({isActive})=>(isActive?'white':'black')};
 export const SubCategoriesContainer = styled('ul')`
 padding-left: "0" ;
 
+
 `

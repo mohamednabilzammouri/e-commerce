@@ -6,16 +6,16 @@ import { Category } from "../types";
 
 function useGetCategories(categoryID: number) {
   const [categories, setCategories] = useState<Category[]>([]);
-  console.log("useGetCategories mrigla", categoryID);
+  const [loader, setLoader] = useState<boolean>(true);
 
   useEffect(() => {
-    if (categories.length === 0) {
-      getFirstNElements(60, categoryID).then((res) => {
-        setCategories(res.data.data.categories);
-      });
-    }
-  }, []);
-  return [categories];
+    setLoader(true);
+    getFirstNElements(60, categoryID).then((res) => {
+      setCategories(res.data.data.categories);
+      setLoader(false);
+    });
+  }, [categoryID]);
+  return { categories, loader };
 }
 
 export default useGetCategories;
