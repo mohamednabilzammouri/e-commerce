@@ -7,6 +7,8 @@ import Sidebar from "./components/layouts/SideBar/Sidebar";
 import { categoriesID } from "./config";
 import {
   CategoriesContext,
+  IdContext,
+  LoaderContext,
   RouteContext,
   SearchContext,
 } from "./Context/Context";
@@ -17,13 +19,18 @@ import {
 } from "./services/ArticlesServices";
 
 function App() {
-  const [Categories] = useGetCategories(categoriesID.Mobel);
+  const [currentId, setCurrentId] = useState(categoriesID.Mobel);
+
+  const { categories, loader } = useGetCategories(currentId);
   const [search, setSearch] = useState("");
   const [route, setRoute] = useState("");
+
   let Articles = filterArticlesBySearch(
-    getChildrenArticlesFromPath(route, Categories[0]),
+    getChildrenArticlesFromPath(route, categories[0]),
     search
   );
+  console.log(loader);
+
   const handleRoute = function () {
     //setTimout is used because of the asynchronous behavios of javaScript sometimes handleRoute
     //gets triggered before the current route changes
@@ -34,16 +41,21 @@ function App() {
   const handleSearch = function (SeachKeyword: string) {
     setSearch(SeachKeyword);
   };
+  const handleID = function (ID: number) {
+    setCurrentId(ID);
+  };
 
   return (
     <>
-      <CategoriesContext.Provider value={Categories}>
+      <CategoriesContext.Provider value={categories}>
         <RouteContext.Provider value={handleRoute}>
           <SearchContext.Provider value={handleSearch}>
-            <Header />
-            <Sidebar />
-            <DisplayArticles Articles={Articles} />
-            <Footer />
+            <IdContext.Provider value={handleID}>
+              <Header />
+              <Sidebar />
+              <DisplayArticles ArticlesAndLoader={{ Articles, loader }} />
+              <Footer />
+            </IdContext.Provider>
           </SearchContext.Provider>
         </RouteContext.Provider>
       </CategoriesContext.Provider>
