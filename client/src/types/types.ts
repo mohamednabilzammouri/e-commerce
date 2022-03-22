@@ -33,3 +33,12 @@ export type Image = {
 export type CategoryArticle = {
   articles: Article[]
 }
+
+export type ServerResponse = {
+  data: ServerData;
+};
+
+export type ServerData = {
+  categories: Category[];
+};
+

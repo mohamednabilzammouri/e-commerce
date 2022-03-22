@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { Article, Category } from "../types/types";
+import { Article, Category, ServerResponse } from "../types/types";
 
 // categoriesQuery accepts 2 argument wich is the first n elements of the categories list and the ID of the category
 let categoriesQuery = (FisrtNelements: number, ID: number): string => {
@@ -35,14 +35,6 @@ fragment categoryArticles on Category {
   }
 }`;
 };
-
-interface ServerResponse {
-  data: ServerData;
-}
-
-interface ServerData {
-  categories: Category[];
-}
 
 // getFirstNElements accepts 2 argument wich is the first n elements of the categories list and the ID of the category
 export let getFirstNElements = function (
