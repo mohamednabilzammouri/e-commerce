@@ -20,4 +20,4 @@ and the image resolution to be more attractive
 
 Added other categories besides Mobel like (Garten, Lampen, Accessoires, Textilien)
 which i found in the GraphQl request in home24.de ===> check config.ts file
-(To work as expected i needed to disable the cache from the backend)
+(To work as expected i needed to disable caching in the backend).
